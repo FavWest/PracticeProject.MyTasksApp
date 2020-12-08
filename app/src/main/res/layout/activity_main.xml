@@ -47,5 +47,6 @@
         android:text="save task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/enterTask" />
+        app:layout_constraintStart_toEndOf="@+id/enterTask"
+        android:onClick="updateTasks"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> tasks = new ArrayList<String>();
+    ListView listView;
+    ArrayAdapter<String> arrayAdapter;
+    EditText enterTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +32,21 @@ public class MainActivity extends AppCompatActivity {
         tasks.add("Clean kitchen");
 
         //Display a checkbox for each item from the tasks ArrayList
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tasks);
-        ListView listView = findViewById(R.id.tasksList);
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tasks);
+        listView = findViewById(R.id.tasksList);
         listView.setAdapter(arrayAdapter);
+
+        //Get the enterTask EditText
+        enterTask = findViewById(R.id.enterTask);
     }
+
+    //The saveTasks Button updates the tasks ArrayList and displays the updated list
+    public void updateTasks(View view) {
+        tasks.add(enterTask.getText().toString());
+        listView.setAdapter(arrayAdapter);
+        enterTask.setText("");
+    }
+
+
+
 }
